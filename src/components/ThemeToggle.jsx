@@ -1,18 +1,18 @@
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, TruckElectric } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      setIsDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else {
+    if (storedTheme === "light") {
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
+    } else {
+      setIsDarkMode(true);
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
